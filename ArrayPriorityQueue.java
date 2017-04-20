@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class ArrayPriorityQueue{
+public class ArrayPriorityQueue<Object>{
 
     private int _size;
-    private int _queue;
+    private ArrayList<Object> _queue;
     
     public ArrayPriorityQueue(){
 	_size = 0;
-	_queue = new ArrayList();
+	_queue = new ArrayList<Object>();
     }
     
     public void add( Object x ){
@@ -17,10 +17,11 @@ public class ArrayPriorityQueue{
 	}
 	else {
 	    //smaller int gets priority
-	    int placeHolder = _size / 2;
-	    while (){
-		
+	    int placeHolder = 0;
+	    while (placeHolder < _size && x.compareTo(_queue.get(placeHolder)) > 0){
+		placeHolder++;
 	    }
+	    _queue.add(placeHolder,x);
 	    _size++;
 	}	
     }
@@ -43,5 +44,9 @@ public class ArrayPriorityQueue{
 	Object ret = _queue.remove(_size-1);
 	_size--;
 	return ret;
+    }
+
+    public static void main(String[] args){
+	
     }
 }
